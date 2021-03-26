@@ -21,12 +21,14 @@ def index():
     caracter = "abcdefghijklmñopqrstuvwxyz1234567890"
     
     #4 caracteres aleatorios
-    url_corta =  ''.join(random.choice(caracter) for i in range(longitud))
+    url_corta = url_local + ''.join(random.choice(caracter) for i in range(longitud))
 
-    
+    #concat url local y url corta
+    #url_final = url_local + url_corta
+
     acortadorUrl = AcortadorUrl()
     acortadorUrl.insertar(url_original, url_corta)
 
     #me redirecciona a la misma pagina pero esta vez con la url cargada en la vista
-    return render_template('index.html', url = url_corta, url_local = url_local)
+    return render_template('index.html', url_corta = url_corta)
 
