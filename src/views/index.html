@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} URL SHORT {% endblock %} 
+
+{% block contenido %}
+<h1>ACORTADOR DE URL</h1>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="nombre">Ingrese su URL</label>
+        <input type="text" required class="form-control" id="acortar" name="acortar" value="{{url_local}}{{url}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Recortar</button>
+</form>
+
+{% endblock%}
