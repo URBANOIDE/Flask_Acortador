@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} LOGIN {% endblock %} 
+
+{% block contenido %}
+<nav class="navbar navbar-center navbar-dark bg-dark mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand">LOGIN  {{ error }}</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Area Publica</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('registrar_usuario') }}">Registrar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<form action="{{ url_for('login') }}" method="POST">
+    <div class="mb-3">
+        <input type="email" required class="form-control" id="email" name="email" placeholder="Correo Electronico">
+    </div>
+
+    <div class="mb-3">
+        <input type="password" required class="form-control" id="password" name="password" placeholder="Contraseña">
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="background-color:green">INICIAR</button>
+</form>
+
+{% endblock%}
