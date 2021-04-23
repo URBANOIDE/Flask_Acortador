@@ -91,7 +91,7 @@ def registrar_usuario():
   nombre = request.form.get('nombre')
   email = request.form.get('email')
   password = request.form.get('password')
-   #encriptar contraseña
+   #encriptar contraseñazz
   #h = hashlib.sha1('sha1', password.encode('utf8'))
 
   acortadorUrl = AcortadorUrl()
@@ -116,12 +116,13 @@ def login():
   user = acortadorUrl.iniciar(email, password)
   #mensaje para alerta de error de ingreso
   error = "Error de ingreso"
-  #sesiones
-  session['usuario'] = user[1]
-  session['id'] = user[0]
+
 
   #validacion de ingreso
   if user != None:
+     #sesiones
+     session['usuario'] = user[1]
+     session['id'] = user[0]
      return render_template('indexuser.html')
   else: return render_template('inicio.html', error = error)
 
